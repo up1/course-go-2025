@@ -107,7 +107,7 @@ func main() {
 
 	logger.Info("Shutting down server...")
 
-	// Graceful shutdown with a 10 second timeout
+	// Graceful shutdown with a 10 seconds timeout
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
