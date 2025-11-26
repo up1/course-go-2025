@@ -1,0 +1,57 @@
+basePath: /
+definitions:
+  models.ErrorResponse:
+    properties:
+      message:
+        example: product id=2 not found in system
+        type: string
+    type: object
+  models.Product:
+    properties:
+      id:
+        example: 1
+        type: integer
+      name:
+        example: Product name 1
+        type: string
+      price:
+        example: 100.5
+        type: number
+      stock:
+        example: 10
+        type: integer
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is a sample server for a Product API.
+  title: Product API
+  version: "1.0"
+paths:
+  /product/{id}:
+    get:
+      description: Retrieves a product's details using its ID.
+      operationId: get-product-by-id
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get product detail by ID
+swagger: "2.0"
