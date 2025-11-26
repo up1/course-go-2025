@@ -36,4 +36,18 @@ $swag init
 URL of swagger
 * http://localhost:8080/swagger/index.html
 
+## Start server
+```
+$go mod tidy
+$go run main.go
+```
 
+URL of swagger
+* http://localhost:8080/metrics
+* http://localhost:8080/product/1
+* http://localhost:8080/product/2
+
+## Testing
+```
+$go test ./... -v -cover
+```
